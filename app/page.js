@@ -1,16 +1,24 @@
-"use client"
-import { useState, useEffect } from 'react'
-import React from 'react'
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navbar';
 
-const page = () => {
-  const [count, setcount] = useState(0)
+import { submitAction } from '@/actions/form';
+
+export default function Page() {
   return (
-    <div> 
-      i am home page {count}
-      <button onClick={()=> setcount(count + 1)}> click me</button>
+    <div>
+      <Navbar />
+      <form action={submitAction}>
+        <div>
+          <label htmlFor="name">Name:</label>
+          <input type="text" name="name" id="name" className="text-blue-600" />
+        </div>
+        <div>
+          <label htmlFor="add">Address:</label>
+          <input type="text" name="add" id="add" className="text-blue-600" />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
-
-export default page
